@@ -9,6 +9,7 @@ test('Check if the end point is working', async ({ request }) => {
     expect(response.status()).toBe(200);
 
     const responseBody = await response.json();
+    
 
     expect(responseBody).toHaveProperty('page', 2);
     expect(responseBody).toHaveProperty('data');
