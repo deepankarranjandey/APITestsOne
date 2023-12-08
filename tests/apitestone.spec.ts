@@ -39,3 +39,21 @@ test('create a new user in the database', async ({ request }) => {
 }
 );
 
+test('update a user in the database', async ({ request }) => {
+    
+        const response = await request.put('https://reqres.in/api/users/2', {
+            data:{
+                name: "morpheus",
+                job: "zion resident"
+            }
+        });
+    
+        expect(response.status()).toBe(200);
+        const responseBody = await response.json();
+    
+        expect(responseBody).toHaveProperty('name', 'morpheus');
+        expect(responseBody).toHaveProperty('job', 'zion resident');
+        expect(responseBody).toHaveProperty('updatedAt');
+    }
+);
+
