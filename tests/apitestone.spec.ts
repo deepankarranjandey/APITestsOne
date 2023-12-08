@@ -15,9 +15,14 @@ test('Check if the end point is working', async ({ request }) => {
     expect(responseBody).toHaveProperty('data');
     expect(Array.isArray(responseBody.data)).toBeTruthy();
 
-}
-
-);
+    const data = responseBody.data[0];
+    expect(data).toHaveProperty('id');
+    expect(data).toHaveProperty('email');
+    expect(data).toHaveProperty('first_name');
+    expect(data).toHaveProperty('last_name');
+    expect(data).toHaveProperty('avatar');
+    
+});
 
 test('create a new user in the database', async ({ request }) => {  
 
